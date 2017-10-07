@@ -7,7 +7,7 @@
     "start": "babel-node app/server",
     "lint": "eslint app",
     "lint:fix": "eslint --fix app",
-    "dev": "nodemon --exec 'yarn lint && babel-node app/server'"
+    "dev": "nodemon --exec 'yarn lint && yarn start'"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
