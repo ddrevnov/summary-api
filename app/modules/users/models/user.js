@@ -18,12 +18,12 @@ const UserSchema = new Schema({
   firstName: {
     type: String,
     lowercase: true,
-    required: true,
+    required: 'Firts name is required',
   },
   lastName: {
     type: String,
     lowercase: true,
-    required: true,
+    required: 'Last name is required',
   },
 }, {
   timestamp: true,
