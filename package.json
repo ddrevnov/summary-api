@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "babel-node app/server",
+    "start": "yarn lint && babel-node app/server",
     "lint": "eslint app",
     "lint:fix": "eslint --fix app",
     "dev": "nodemon --exec 'yarn lint && yarn start'"

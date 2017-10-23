@@ -26,7 +26,7 @@ const UserSchema = new Schema({
     required: 'Last name is required',
   },
 }, {
-  timestamp: true,
+  timestamps: true,
 });
 
 UserSchema.statics.createFields = ['email', 'firstName', 'lastName', 'password'];
