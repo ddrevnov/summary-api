@@ -11,5 +11,7 @@ export default (mongoUri) => {
     .connect(mongoUri, { useMongoClient: true })
     .then((mongodb) => {
       console.log('Mongo connected');
+
+      return mongodb;
     });
 };
