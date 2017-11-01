@@ -7,9 +7,9 @@ function init() {
 
   _.times(20, async () => {
     const userPromise = User.create({
-      email: `${faker.lorem.word(1, 10)}@${faker.lorem.word(5)}`,
-      firstName: faker.lorem.word(10),
-      lastName: faker.lorem.word(10),
+      email: `${faker.lorem.word(1, 10)}@${faker.lorem.word(1, 10)}`,
+      firstName: faker.lorem.word(1, 10),
+      lastName: faker.lorem.word(1, 10),
       password: 1111,
     });
 
