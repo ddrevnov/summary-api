@@ -10,20 +10,24 @@ const UserSchema = new Schema({
     unique: 'User with email "{VALUE}" already exist',
     lowercase: true,
     required: 'Email is required',
+    trim: true,
   },
   password: {
     type: String,
     required: 'Password is required',
+    trim: true,
   },
   firstName: {
     type: String,
     lowercase: true,
     required: 'Firts name is required',
+    trim: true,
   },
   lastName: {
     type: String,
     lowercase: true,
     required: 'Last name is required',
+    trim: true,
   },
 }, {
   timestamps: true,
