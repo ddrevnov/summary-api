@@ -1,6 +1,7 @@
 import { MONGO_URI } from '../config';
 import mongooseConnector from '../connectors/mongoose-connector';
 import userSeeds from './user-seeds';
+import summarySeeds from './summary-seeds';
 
 initSeeds();
 
@@ -10,7 +11,8 @@ async function initSeeds() {
   await mongoConnection.dropDatabase();
 
   const users = await userSeeds();
-  console.log(users);
+  const summaries = await summarySeeds(users);
+  console.log(summaries);
 
   mongoConnection.close();
 }
