@@ -11,4 +11,10 @@ export default {
 
     return Summary.create(data);
   },
+
+  async updateSummary(data, summary) {
+    summary.set(data);
+
+    return await summary.save();
+  },
 };

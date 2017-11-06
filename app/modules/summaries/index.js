@@ -6,7 +6,8 @@ import { Summary } from './models';
 const router = new Router({ prefix: '/summaries' });
 
 router
-  .post('/', checkUser(), summariesController.create);
+  .post('/', checkUser(), summariesController.create)
+  .put('/:id', checkUser(), summariesController.update);
 
 export {
   Summary,

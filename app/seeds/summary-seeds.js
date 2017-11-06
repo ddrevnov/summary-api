@@ -3,6 +3,10 @@ import _ from 'lodash';
 import { Summary } from '../modules/summaries';
 
 export default (users) => {
+  if (!users || !users.length) {
+    throw Error('Users is required');
+  }
+
   const promises = [];
 
   _.times(20, () => {
