@@ -9,6 +9,7 @@ export default {
     const { _id } = await UserService.createUser(userData);
     const user = await UserService.getUserWithPublicFields({ _id });
 
+    ctx.status = 201;
     ctx.body = { data: user };
   },
 
