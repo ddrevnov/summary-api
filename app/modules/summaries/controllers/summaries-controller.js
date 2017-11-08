@@ -9,15 +9,11 @@ export default {
       userId: ctx.user._id,
     };
 
-    try {
-      const { _id } = await SummaryService.createSummary(summaryData);
-      const summary = await Summary.findOne({ _id });
+    const { _id } = await SummaryService.createSummary(summaryData);
+    const summary = await Summary.findOne({ _id });
 
-      ctx.status = 201;
-      ctx.body = { data: summary };
-    } catch (e) {
-      ctx.throw(400, e);
-    }
+    ctx.status = 201;
+    ctx.body = { data: summary };
   },
 
   async update(ctx) {

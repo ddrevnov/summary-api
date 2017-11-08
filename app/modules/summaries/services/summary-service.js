@@ -6,7 +6,7 @@ export default {
     const summaryCountByUserId = await Summary.count({ userId });
 
     if (summaryCountByUserId === 3) {
-      throw Error('User can have no more than three summary');
+      throw new AppError({ status: 400, msg: 'User can have no more than three summary' });
     }
 
     return Summary.create(data);
