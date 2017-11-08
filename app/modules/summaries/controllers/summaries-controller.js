@@ -22,30 +22,39 @@ export default {
 
   async update(ctx) {
     const {
-      params: {
-        id: _id,
-      },
       request: {
         body,
       },
       user: {
         _id: userId,
       },
+      summary,
     } = ctx;
 
-    const summary = await Summary.findOne({ _id });
-
-    if (!summary) {
-      ctx.throw(404, `Summary with id "${_id}" not found`);
-    }
-
     if (summary.userId !== userId.toHexString()) {
-      ctx.throw(403, `Forbidden. Summary with id "${_id}" dont belong to user with id ${userId}`);
+      ctx.throw(403, `Forbidden. Summary with id "${summary._id}" dont belong to user with id ${userId}`);
     }
 
     const newData = pick(body, Summary.createFields);
     const updatedSummary = await SummaryService.updateSummary(newData, summary);
 
     ctx.body = { data: updatedSummary };
+  },
+
+  async delete(ctx) {
+    const {
+      user: {
+        _id: userId,
+      },
+      summary,
+    } = ctx;
+
+    if (summary.userId !== userId.toHexString()) {
+      ctx.throw(403, `Forbidden. Summary with id "${summary._id}" dont belong to user with id ${userId}`);
+    }
+
+    await summary.remove();
+
+    ctx.body = { data: { id: summary._id } };
   },
 };
