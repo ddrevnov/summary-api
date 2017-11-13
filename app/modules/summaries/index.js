@@ -8,9 +8,10 @@ const router = new Router({ prefix: '/summaries' });
 
 router
   .post('/', checkUser(), summariesController.create)
-  .param('id', chekSummary())
-  .put('/:id', checkUser(), summariesController.update)
-  .delete('/:id', checkUser(), summariesController.delete);
+  .param('hash', chekSummary())
+  .put('/:hash', checkUser(), summariesController.update)
+  .delete('/:hash', checkUser(), summariesController.delete)
+  .get('/:hash', summariesController.getSummary);
 
 export {
   Summary,

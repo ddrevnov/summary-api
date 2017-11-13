@@ -53,4 +53,9 @@ export default {
 
     ctx.body = { data: { id: summary._id } };
   },
+  getSummary(ctx) {
+    const { summary } = ctx;
+
+    ctx.body = { data: pick(summary, Summary.createFields) };
+  },
 };
