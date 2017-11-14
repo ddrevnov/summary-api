@@ -7,7 +7,7 @@ export default () => {
 
   _.times(20, () => {
     const userPromise = User.create({
-      email: `${faker.lorem.word(1, 10)}@${faker.lorem.word(1, 10)}`,
+      email: `${faker.lorem.word(1, 20)}-${faker.random.number(0, 999)}@${faker.lorem.word(1, 10)}`,
       firstName: faker.name.firstName(),
       lastName: faker.name.lastName(),
       password: 1111,
